@@ -5,3 +5,5 @@ que_dict = {'who are you': 'i am artificial intelligence simulated humanoid assi
             'who created you': 'Vivek created me.',
             'i like you': 'really'
             }
+
+online_music = 'https://www.saavn.com/play/featured/hindi/Weekly+Top+Songs'

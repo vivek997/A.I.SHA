@@ -5,7 +5,7 @@ import os
 import ctypes
 from termcolor import colored
 from tweet import api
-from random_dict import que_dict
+from random_dict import online_music, que_dict
 from playsound import playsound
 
 #Owner: Vivek Rawal
@@ -115,7 +115,7 @@ if __name__ == '__main__':
                 speak_text_cmd('your system is locked.')
             continue
         elif 'play' in voice_note:
-            webbrowser.open('https://www.saavn.com/play/featured/hindi/Weekly+Top+Songs')
+            webbrowser.open(online_music)
             continue
         elif 'thank you' in voice_note:
             playsound('mp3/thankyou_2.mp3')
