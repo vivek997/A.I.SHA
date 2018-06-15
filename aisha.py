@@ -3,6 +3,8 @@ import pyttsx3
 import speech_recognition as sr
 import os
 import ctypes
+from termcolor import colored
+from tweet import api
 from random_dict import que_dict
 from playsound import playsound
 
@@ -95,6 +97,13 @@ if __name__ == '__main__':
             else:
                 os.system('explorer C:\\"{}"'.format(voice_note.replace('open ', '').replace('launch ', '')))
             continue
+        elif 'tweet' in voice_note:
+            speak_text_cmd("What's your tweet.")
+            status = read_voice_cmd().lower()
+            api.update_status(status)
+            print('cmd: {}'.format(status))
+            print(colored("successful", color='green'))
+            continue
         elif is_valid_google_search(voice_note):
             print('searching...')
             playsound('mp3/search_1.mp3')
@@ -104,6 +113,9 @@ if __name__ == '__main__':
             for value in ['pc', 'system', 'window', 'windows']:
                 ctypes.windll.user32.LockWorkStation()
                 speak_text_cmd('your system is locked.')
+            continue
+        elif 'play' in voice_note:
+            webbrowser.open('https://www.saavn.com/play/featured/hindi/Weekly+Top+Songs')
             continue
         elif 'thank you' in voice_note:
             playsound('mp3/thankyou_2.mp3')
